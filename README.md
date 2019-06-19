@@ -93,7 +93,8 @@ Your bot needs to be published and you need to know the engine URL.
 3. Click Save Model, and then Create Model to build and activate the Alexa-User Interaction model.
 
 ### Running the connector locally
-Before continuing setting up things on Alexa's Developer Console side, get the connector code running locally..
+Before continuing setting up things on Alexa's Developer Console side, get the connector code running locally:
+
 1. Download or clone the connector source code:
     ```
     git clone https://github.com/artificialsolutions/tie-api-example-alexa.git
@@ -102,11 +103,9 @@ Before continuing setting up things on Alexa's Developer Console side, get the c
     ```
     npm install
     ``` 
-    REVISAR A PARTIR DE AQUI
 3. Create a `.env` file in the folder where you stored the source, and add values for TENEO_ENGINE_URL and HTTP_API_TOKEN:
     ```
     TENEO_ENGINE_URL=<your_engine_url>
-    HTTP_API_TOKEN=<that value obtained in the previous section>
     ```
 4. Start the connector in Console:
     ```
@@ -114,5 +113,10 @@ Before continuing setting up things on Alexa's Developer Console side, get the c
     ```
 
 ### Start chatting with the bot.
-Go back to Telegram and add the bot's `user_name` you created previously, as a contact.
-That's it! Your bot should now be available in Telegram and responding to messages that are sent to it.
+1. Go back to the [Developer Console](https://developer.amazon.com/alexa/console/ask), and click `Endpoint` from the left side menu.
+2. Select a HTTPS service endpoint type, and paste the public URL from ngrok obtained in the previous step. in the `Select SSL certificate type`, select `My developement endpoint is a sub-domain ... that has a wildcard certificate from a certificate authority`. Click on Save endpoints.
+3. In the top menu, click Test to begin chatting to the bot. At first, the conversation takes place with Alexa, to begin talking with the actual Teneo bot Skill, trigger the IntentRequest in the code by telling Alexa a phrase such as "Alexa, launch studio bot" on the chat window. Your Teneo bot should then greet, and take over the conversation. 
+4. To end a conversation with your Teneo bot, and go back to talking to Alexa, type a phrase from the StopIntent key of the Interaction Model JSON, such as "Goodbye studio bot".
+Important: "Studio bot" was the default name specified in the Interaction Model's JSON, you can choose any other name and then re-save, and re-build the model to apply the change.
+
+That's it! Your bot is ready to deploy on Alexa.
