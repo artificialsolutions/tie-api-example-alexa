@@ -33,14 +33,14 @@ const config = {
 const teneoApi = TIE.init(config.teneoURL);
 
 
-// initialise session handler, to store mapping between WeChat and engine session id
+// initialise session handler, to store mapping between Alexa and engine session id
 const sessionHandler = SessionHandler();
 /***
  * SESSION HANDLER
  ***/
 function SessionHandler() {
 
-   // Map Alexa's Sid id to the teneo engine session id. 
+   // Map Alexa's SID to Teneo engine's session id. 
    // This code keeps the map in memory, which is ok for testing purposes
    // For production usage it is advised to make use of more resilient storage mechanisms like redis
    const sessionMap = new Map();
@@ -60,40 +60,46 @@ function SessionHandler() {
 }
 
 
-// register a webhook handler with the connector
+//Builds a JSON formatted response for Alexa. Contains an output text and possibly, a flag to close the bot session within Alexa.
+function buildAlexaResponse(outputText, shouldEndSession){
+
+   var outputSpeechValue = {}
+   if (!(typeof outputText == 'undefined' || !outputText || outputText.length === 0 || outputText === "" || !/[^\s]/.test(outputText) || /^\s*$/.test(outputText) || outputText.replace(/\s/g,"") === "")){
+      //construct json if the outputText is a valid string
+      outputSpeechValue = {
+         type: 'SSML',
+         text: outputText,
+         ssml: '<speak>' + outputText + '</speak>'
+      }
+   }
+
+   const alexaResponse = {
+      version: '1.0',
+      response: {
+         shouldEndSession: shouldEndSession,
+         outputSpeech: outputSpeechValue
+      }
+   }
+
+   return alexaResponse
+}
+
+
+
+// Register a webhook handler with the connector
 app.post('/', async function(req, res) {
 
       if (req.body.request.type == "SessionEndedRequest") {
+         //Close Teneo's session within Alexa's conversation, and erase the session ID.
          sessionHandler.setSession(req.body.session.sessionId, "")
-         res.send({
-            version: '1.0',
-            response: {
-               shouldEndSession: true
-                  /*,
-                          outputSpeech: {
-                            type: 'SSML',
-                            text: teneoResponseText,
-                            ssml: '<speak>' + teneoResponseText + '</speak>'
-                           }*/
-            }
-         });
+         res.send(buildAlexaResponse("",true)); //send true to end session 
       }
 
       var teneoResponseText = ""
       if (req.body.request.type == "LaunchRequest") {
+         //Handle a launch request to our Teneo bot by saying "hello"
          teneoResponseText = await handleAlexaMessage("hello", "") //greeting
-
-         res.send({
-            version: '1.0',
-            response: {
-               shouldEndSession: false,
-               outputSpeech: {
-                  type: 'SSML',
-                  text: teneoResponseText,
-                  ssml: '<speak>' + teneoResponseText + '</speak>'
-               }
-            }
-         })
+         res.send(buildAlexaResponse(teneoResponseText,false)) 
       }
 
       if (req.body.request.type == "IntentRequest") {
@@ -101,42 +107,27 @@ app.post('/', async function(req, res) {
          const alexaSessionID = req.body.session.sessionId
 
          if (intentName == "teneointent") {
+            //Fetch the exact user input from the RawInput Slot
             const userInput = req.body.request.intent.slots.RawInput.value
             teneoResponseText = await handleAlexaMessage(userInput, alexaSessionID)
 
             console.log(`Teneo response:\n ${teneoResponseText}`)
 
-            res.send({
-               version: '1.0',
-               response: {
-                  shouldEndSession: false,
-                  outputSpeech: {
-                     type: 'SSML',
-                     text: teneoResponseText,
-                     ssml: '<speak>' + teneoResponseText + '</speak>'
-                  }
-               }
-            })
+            //Build a response to Rrlay Teneo's reply to Alexa
+            res.send(buildAlexaResponse(teneoResponseText,false))
          }
 
-         if ((intentName == "AMAZON.CancelIntent") || (intentName == "Amazon.StopIntent")) {
+         //React to intents that signal an end of session for a Teneo bot within Alexa
+         if ((intentName == "AMAZON.CancelIntent") || (intentName == "AMAZON.StopIntent")) {
+            //Say farewell to Teneo bot
             teneoResponseText = await handleAlexaMessage("bye", alexaSessionID)
-            res.send({
-               version: '1.0',
-               response: {
-                  shouldEndSession: true,
-                  outputSpeech: {
-                     type: 'SSML',
-                     text: teneoResponseText,
-                     ssml: '<speak>' + teneoResponseText + '</speak>'
-                  }
-               }
-            })
+            //Tell Alexa to close session with Teneo bot (end session parameter = true)
+            res.send(buildAlexaResponse(teneoResponseText,true))
+            //Wipe out Teneo session
             sessionHandler.setSession(req.body.session.sessionId, "")
          }
       }
-   }
-);
+});
 
 
 async function handleAlexaMessage(alexaMessage, userID) {
@@ -158,4 +149,5 @@ async function handleAlexaMessage(alexaMessage, userID) {
    return teneoTextReply
 }
 
-app.listen(8080, () => console.log(`Teneo-Alexa connector listening on port 8080!, ENDPOINT: ${config.teneoURL}`));
+
+app.listen(8080, () => console.log(`Teneo-Alexa connector listening on port 8080, ENDPOINT: ${config.teneoURL}`))
