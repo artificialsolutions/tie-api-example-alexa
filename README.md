@@ -96,12 +96,13 @@ Your bot needs to be published and you need to know the engine URL.
 Before continuing setting up things on Alexa's Developer Console side, get the connector code running locally..
 1. Download or clone the connector source code:
     ```
-    git clone https://github.com/artificialsolutions/tie-api-example-telegram.git
+    git clone https://github.com/artificialsolutions/tie-api-example-alexa.git
     ```
 2. Install dependencies by running the following command in the folder where you stored the source:
     ```
     npm install
     ``` 
+    REVISAR A PARTIR DE AQUI
 3. Create a `.env` file in the folder where you stored the source, and add values for TENEO_ENGINE_URL and HTTP_API_TOKEN:
     ```
     TENEO_ENGINE_URL=<your_engine_url>
