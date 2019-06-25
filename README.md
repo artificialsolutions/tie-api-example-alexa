@@ -42,7 +42,9 @@ Your bot needs to be published and you need to know the engine URL.
                         "dismiss studio bot",
                         "shut down studio bot",
                         "goodbye studio bot",
-                        "bye studio bot"
+                        "bye studio bot",
+                        "let me speak again to alexa",
+                        "hello alexa"
                     ]
                 },
                 {
