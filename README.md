@@ -126,7 +126,7 @@ Next, we need to make the connector available via https. We'll use [ngrok](https
 
 
 ### Add the endpoint URL to your skill.
-1. Go back to the [Developer Console](https://developer.amazon.com/alexa/console/ask), 
+1. Go back to the [Developer Console](https://developer.amazon.com/alexa/console/ask).
 2. Click `Endpoint` from the left menu.
 3. Select a `HTTPS` service endpoint type, and paste the public URL from ngrok obtained earlier in the `Default Region` field. 
 4. From the `Select SSL certificate type` dropdown, select `My developement endpoint is a sub-domain ... that has a wildcard certificate from a certificate authority`.
