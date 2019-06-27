@@ -89,10 +89,10 @@ Your bot needs to be published and you need to know the engine URL.
         }
     }
     ```
-    This JSON represents the Interaction Model of this Alexa skill, and defines:
-       * The invocation name of our bot, which is used to redirects the conversation away from Alexa to your Teneo bot when the user says something like "Alexa, launch Studio bot".
-       * The phrases that trigger the StopIntent, which dismisses your bot, and steers the conversation back to Alexa.
-       * The way in which the user input is captured, to be later relayed to your Teneo bot.
+    This JSON represents the Interaction Model of this Alexa skill, and defines:  
+    * The invocation name of our bot, which is used to redirects the conversation away from Alexa to your Teneo bot when the user says something like "Alexa, launch Studio bot".
+    * The phrases that trigger the StopIntent, which dismisses your bot, and steers the conversation back to Alexa.
+    * The way in which the user input is captured, to be later relayed to your Teneo bot.
  
 3. Click `Save Model`, and then `Build Model` to build and update Alexa's Interaction model.
 
