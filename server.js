@@ -35,32 +35,8 @@ const teneoApi = TIE.init(config.teneoURL);
 
 // initialise session handler, to store mapping between Alexa and engine session id
 const sessionHandler = SessionHandler();
-/***
- * SESSION HANDLER
- ***/
-function SessionHandler() {
 
-   // Map Alexa's SID to Teneo engine's session id. 
-   // This code keeps the map in memory, which is ok for testing purposes
-   // For production usage it is advised to make use of more resilient storage mechanisms like redis
-   const sessionMap = new Map();
-
-   return {
-      getSession: (userId) => {
-         if (sessionMap.size > 0) {
-            return sessionMap.get(userId);
-         } else {
-            return "";
-         }
-      },
-      setSession: (userId, sessionId) => {
-         sessionMap.set(userId, sessionId)
-      }
-   };
-}
-
-
-//Builds a JSON formatted response for Alexa. Contains an output text and possibly, a flag to close the bot session within Alexa.
+// Builds a JSON formatted response for Alexa. Contains an output text and possibly, a flag to close the bot session within Alexa.
 function buildAlexaResponse(outputText, shouldEndSession){
 
    var outputSpeechValue = {}
@@ -151,3 +127,27 @@ async function handleAlexaMessage(alexaMessage, userID) {
 
 
 app.listen(8080, () => console.log(`Teneo-Alexa connector listening on port 8080, ENDPOINT: ${config.teneoURL}`))
+
+/***
+ * SESSION HANDLER
+ ***/
+function SessionHandler() {
+
+   // Map Alexa's SID to Teneo engine's session id. 
+   // This code keeps the map in memory, which is ok for testing purposes
+   // For production usage it is advised to make use of more resilient storage mechanisms like redis
+   const sessionMap = new Map();
+
+   return {
+      getSession: (userId) => {
+         if (sessionMap.size > 0) {
+            return sessionMap.get(userId);
+         } else {
+            return "";
+         }
+      },
+      setSession: (userId, sessionId) => {
+         sessionMap.set(userId, sessionId)
+      }
+   };
+}
