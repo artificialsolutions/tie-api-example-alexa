@@ -119,9 +119,9 @@ Before continuing setting up things on Alexa's Developer Console side, get the c
     
 Next, we need to make the connector available via https. We'll use [ngrok](https://ngrok.com) for this.
 
-1. Start ngrok. The connector runs on port 8080 by default, so we need to start ngrok like this:
+1. Start ngrok. The connector runs on port 3467 by default, so we need to start ngrok like this:
     ```
-    ngrok http 8080
+    ngrok http 3467
     ```
 2. Running the command above will display a public https URL. Copy it, we will use it as a `Service Endpoint URL` in the next steps ahead.
 

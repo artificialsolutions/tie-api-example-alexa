@@ -125,8 +125,8 @@ async function handleAlexaMessage(alexaMessage, userID) {
    return teneoTextReply
 }
 
-
-app.listen(8080, () => console.log(`Teneo-Alexa connector listening on port 8080, ENDPOINT: ${config.teneoURL}`))
+const port = process.env.PORT || 3467;
+app.listen(port, () => console.log(`Teneo-Alexa connector listening on port ${port}, ENDPOINT: ${config.teneoURL}`))
 
 /***
  * SESSION HANDLER
