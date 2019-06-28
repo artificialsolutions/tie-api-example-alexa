@@ -108,7 +108,7 @@ Before continuing setting up things on Alexa's Developer Console side, get the c
     ```
     npm install
     ``` 
-3. Create a `.env` file in the folder where you stored the source, and add values for HTTP_API_TOKEN:
+3. Create a `.env` file in the folder where you stored the source, and add the Teneo engine url:
     ```
     TENEO_ENGINE_URL=<your_engine_url>
     ```
