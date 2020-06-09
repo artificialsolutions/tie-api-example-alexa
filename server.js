@@ -19,7 +19,7 @@ const bodyParser = require('body-parser')
 const TIE = require('@artificialsolutions/tie-api-client');
 const {
    TENEO_ENGINE_URL,
- } = require('./config');
+ } = require('./config.js');
 
 
 const app = express();
