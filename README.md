@@ -107,14 +107,14 @@ The second way is to [run the connector locally](#running-the-connector-locally)
 #### Running the connector on Heroku
 Click the button below to deploy the connector to Heroku:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg?classes=heroku)](https://github.com/artificialsolutions/tie-api-example-alexa/tree/develop)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg?classes=heroku)](https://heroku.com/deploy?template=https://github.com/artificialsolutions/tie-api-example-alexa/tree/develop)
 
 In the 'Config Vars' section, add the following:
 * **TENEO_ENGINE_URL:** The engine url of your bot
 
 
 #### Running the connector locally
-If you want to run the connector locally, follow the steps below. If you have already followed the instructions above to deploy the connector on Heroku, you can skip this section and continuing setup on [Alexa Developer Console](# Add the endpoint URL to your skill.).
+If you want to run the connector locally, follow the steps below. If you have already followed the instructions above to deploy the connector on Heroku, you can skip this section and continuing setup on [Alexa Developer Console](#add-the-endpoint-url-to-your-skill.).
 1. Download or clone the connector source code:
     ```
     git clone https://github.com/artificialsolutions/tie-api-example-alexa.git
