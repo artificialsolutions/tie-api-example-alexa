@@ -1,0 +1,16 @@
+{
+    "name": "heroku-teneo-alexa-connector",
+    "description": "A Teneo connector for Amazon Alexa",
+    "keywords": [
+        "bot",
+        "Teneo",
+        "Alexa"
+    ],
+    "repository": "https://github.com/artificialsolutions/tie-api-example-alexa/tree/develop",
+    "env": {
+        "TENEO_ENGINE_URL": {
+            "description": "Please input your Teneo Engine URL. https://some.engine/instance/",
+            "required":true
+        }
+    }
+}

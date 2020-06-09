@@ -98,8 +98,23 @@ Your bot needs to be published and you need to know the engine URL.
 3. Click `Save Model`, and then `Build Model` to build and update Alexa's Interaction model.
 
 ### Run the connector
-Before continuing setting up things on Alexa's Developer Console side, get the connector code running locally:
+Before continuing setting up things on Alexa's Developer Console side, get the connector code running using one of the two available ways described ahead:
 
+The first way is by [running the connector on Heroku](#running-the-connector-on-heroku). This is the easiest to get the connector running for non-developers since it does not require you to run node.js or download or modify any code.
+
+The second way is to [run the connector locally](#running-the-connector-locally) or to deploy it on a server of your choice. This preferred if you're familiar with node.js development and want to have a closer look at the code and plan to enhance or modify it.
+
+#### Running the connector on Heroku
+Click the button below to deploy the connector to Heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg?classes=heroku)](https://github.com/artificialsolutions/tie-api-example-alexa/tree/develop)
+
+In the 'Config Vars' section, add the following:
+* **TENEO_ENGINE_URL:** The engine url of your bot
+
+
+#### Running the connector locally
+If you want to run the connector locally, follow the steps below. If you have already followed the instructions above to deploy the connector on Heroku, you can skip this section and continuing setup on [Alexa Developer Console](# Add the endpoint URL to your skill.).
 1. Download or clone the connector source code:
     ```
     git clone https://github.com/artificialsolutions/tie-api-example-alexa.git
