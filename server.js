@@ -17,7 +17,10 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const TIE = require('@artificialsolutions/tie-api-client');
-require('dotenv').config();
+const {
+   TENEO_ENGINE_URL,
+ } = require('./config');
+
 
 const app = express();
 app.use(bodyParser.urlencoded({
@@ -25,12 +28,9 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 
-const config = {
-   teneoURL: process.env.TENEO_ENGINE_URL
-};
 
 //Create Teneo API interface
-const teneoApi = TIE.init(config.teneoURL);
+const teneoApi = TIE.init(TENEO_ENGINE_URL);
 
 
 // initialise session handler, to store mapping between Alexa and engine session id
@@ -127,7 +127,7 @@ async function handleAlexaMessage(alexaMessage, userID) {
 }
 
 const port = process.env.PORT || 3467;
-app.listen(port, () => console.log(`Teneo-Alexa connector listening on port ${port}, ENDPOINT: ${config.teneoURL}`))
+app.listen(port, () => console.log(`Teneo-Alexa connector listening on port ${port}, ENDPOINT: ${TENEO_ENGINE_URL}`))
 
 /***
  * SESSION HANDLER

@@ -114,7 +114,7 @@ In the 'Config Vars' section, add the following:
 
 
 #### Running the connector locally
-If you want to run the connector locally, follow the steps below. If you have already followed the instructions above to deploy the connector on Heroku, you can skip this section and continuing setup on [Alexa Developer Console](#add-the-endpoint-url-to-your-skill.).
+If you want to run the connector locally, follow the steps below. If you have already followed the instructions above to deploy the connector on Heroku, you can skip this section and continuing setup on [Alexa Developer Console](#add-the-endpoint-url-to-your-skill).
 1. Download or clone the connector source code:
     ```
     git clone https://github.com/artificialsolutions/tie-api-example-alexa.git
@@ -141,7 +141,7 @@ Next, we need to make the connector available via https. We'll use [ngrok](https
 2. Running the command above will display a public https URL. Copy it, we will use it as a `Service Endpoint URL` in the next steps ahead.
 
 
-### Add the endpoint URL to your skill.
+### Add the endpoint URL to your skill
 1. Go back to the [Developer Console](https://developer.amazon.com/alexa/console/ask).
 2. Click `Endpoint` from the left menu.
 3. Select a `HTTPS` service endpoint type, and paste the public URL from ngrok obtained earlier in the `Default Region` field. 
