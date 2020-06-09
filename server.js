@@ -17,9 +17,16 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const TIE = require('@artificialsolutions/tie-api-client');
+
+const dotenv = require('dotenv');
+dotenv.config();
 const {
-   TENEO_ENGINE_URL,
- } = require('./config.js');
+  TENEO_ENGINE_URL,
+} = process.env;
+if (!TENEO_ENGINE_URL) {
+   throw new Error('Missing environment variable TENEO_ENGINE_URL!');
+ }
+
 
 
 const app = express();
