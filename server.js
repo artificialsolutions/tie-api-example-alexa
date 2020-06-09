@@ -113,7 +113,8 @@ async function handleAlexaMessage(alexaMessage, userID) {
 
    // send input to engine using stored sessionid and retreive response
    const teneoResponse = await teneoApi.sendInput(teneoSessionId, {
-      'text': alexaMessage
+      'text': alexaMessage,
+      'channel':'amazon-alexa'
    });
    
    teneoTextReply = teneoResponse.output.text
