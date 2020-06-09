@@ -137,9 +137,6 @@ async function handleAlexaMessage(alexaMessage, userID) {
 }
 
 var port = process.env.PORT || 3467;
-if (process.env.NODE_ENV === 'production') { 
-   port=3467;
-}
 app.listen(port, () => console.log(`Teneo-Alexa connector listening on port ${port}, ENDPOINT: ${TENEO_ENGINE_URL}`))
 
 /***
