@@ -98,8 +98,24 @@ Your bot needs to be published and you need to know the engine URL.
 3. Click `Save Model`, and then `Build Model` to build and update Alexa's Interaction model.
 
 ### Run the connector
-Before continuing setting up things on Alexa's Developer Console side, get the connector code running locally:
+Before continuing setting up things on Alexa's Developer Console side, get the connector code running using one of the two available ways described ahead:
 
+The first way is by [running the connector on Heroku](#running-the-connector-on-heroku). This is the easiest to get the connector running for non-developers since it does not require you to run node.js or download or modify any code.
+
+The second way is to [run the connector locally](#running-the-connector-locally) or to deploy it on a server of your choice. This preferred if you're familiar with node.js development and want to have a closer look at the code and plan to enhance or modify it.
+
+#### Running the connector on Heroku
+Click the button below to deploy the connector to Heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg?classes=heroku)](https://heroku.com/deploy?template=https://github.com/artificialsolutions/tie-api-example-alexa/)
+
+In the 'Config Vars' section, add the following:
+* **TENEO_ENGINE_URL:** The engine url of your bot
+
+When deployment completes, click 'View App' to visualize the URL of the newly created app in a new browser tab. This tab will not work by itself, so just copy its URL and we will use it as a `Service Endpoint URL` in the next steps ahead.
+
+#### Running the connector locally
+If you want to run the connector locally, follow the steps below. If you have already followed the instructions above to deploy the connector on Heroku, you can skip this section and continuing setup on [Alexa Developer Console](#add-the-endpoint-url-to-your-skill).
 1. Download or clone the connector source code:
     ```
     git clone https://github.com/artificialsolutions/tie-api-example-alexa.git
@@ -126,16 +142,23 @@ Next, we need to make the connector available via https. We'll use [ngrok](https
 2. Running the command above will display a public https URL. Copy it, we will use it as a `Service Endpoint URL` in the next steps ahead.
 
 
-### Add the endpoint URL to your skill.
+### Add the endpoint URL to your skill
 1. Go back to the [Developer Console](https://developer.amazon.com/alexa/console/ask).
 2. Click `Endpoint` from the left menu.
-3. Select a `HTTPS` service endpoint type, and paste the public URL from ngrok obtained earlier in the `Default Region` field. 
+3. Select a `HTTPS` service endpoint type, and paste the public URL from ngrok obtained earlier in the `Default Region` field. Make sure this URL does not end in a slash character '/'.
 4. From the `Select SSL certificate type` dropdown, select `My developement endpoint is a sub-domain ... that has a wildcard certificate from a certificate authority`.
 5. Click on Save endpoints.
+6. Click on the Left Side menu > JSON Editor > Build Model to update the changes.
 
 That's it! You're now ready to talk to your Alexa bot.
 
 ### Start talking to your bot
 1. In the top menu, click Test to begin chatting to the bot. At first, the conversation takes place with Alexa. To begin talking with your Teneo bot, say something like "_Alexa, launch studio bot_". Your Teneo bot should then greet you, and take over the conversation. 
 2. To end a conversation with your bot and go back to talking to Alexa, say something like "_Goodbye studio bot_". You will now be talking to Alexa again.
+
+## Engine input parameters
+The following input parameters are included in requests to Engine.
+
+### channel
+In addition to the input entered by the user, requests to the Teneo Engine also contain an input paramter 'channel' with value 'amazon-alexa'. This allows you to change the behavior of your bot, depending on the channel used. For information on how to retrieve the value of an input parameter in Teneo Studio, see [Store input parameters](https://www.teneo.ai/studio/scripting/how-to/store-input-parameters) on the Teneo Developers website.
 

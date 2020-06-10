@@ -1,10 +1,10 @@
 {
   "name": "tie-api-example-alexa",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A basic example using Teneo and Alexa",
   "main": "server.js",
   "scripts": {
-    "start": "node .",
+    "start": "node server.js",
     "dev": "nodemon .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,5 +25,6 @@
   },
   "devDependencies": {
     "dotenv": "^6.0.0"
-  }
+  },
+  "heroku-run-build-script": true
 }
