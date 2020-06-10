@@ -107,7 +107,7 @@ The second way is to [run the connector locally](#running-the-connector-locally)
 #### Running the connector on Heroku
 Click the button below to deploy the connector to Heroku:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg?classes=heroku)](https://heroku.com/deploy?template=https://github.com/artificialsolutions/tie-api-example-alexa/tree/develop)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg?classes=heroku)](https://heroku.com/deploy?template=https://github.com/artificialsolutions/tie-api-example-alexa/)
 
 In the 'Config Vars' section, add the following:
 * **TENEO_ENGINE_URL:** The engine url of your bot
@@ -155,4 +155,10 @@ That's it! You're now ready to talk to your Alexa bot.
 ### Start talking to your bot
 1. In the top menu, click Test to begin chatting to the bot. At first, the conversation takes place with Alexa. To begin talking with your Teneo bot, say something like "_Alexa, launch studio bot_". Your Teneo bot should then greet you, and take over the conversation. 
 2. To end a conversation with your bot and go back to talking to Alexa, say something like "_Goodbye studio bot_". You will now be talking to Alexa again.
+
+## Engine input parameters
+The following input parameters are included in requests to Engine.
+
+### channel
+In addition to the input entered by the user, requests to the Teneo Engine also contain an input paramter 'channel' with value 'amazon-alexa'. This allows you to change the behavior of your bot, depending on the channel used. For information on how to retrieve the value of an input parameter in Teneo Studio, see [Store input parameters](https://www.teneo.ai/studio/scripting/how-to/store-input-parameters) on the Teneo Developers website.
 

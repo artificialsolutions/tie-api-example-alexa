@@ -6,7 +6,7 @@
         "Teneo",
         "Alexa"
     ],
-    "repository": "https://github.com/artificialsolutions/tie-api-example-alexa/tree/develop",
+    "repository": "https://github.com/artificialsolutions/tie-api-example-alexa/",
     "env": {
         "TENEO_ENGINE_URL": {
             "description": "Please input your Teneo Engine URL. https://some.engine/instance/",
