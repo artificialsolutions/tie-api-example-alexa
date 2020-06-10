@@ -112,6 +112,7 @@ Click the button below to deploy the connector to Heroku:
 In the 'Config Vars' section, add the following:
 * **TENEO_ENGINE_URL:** The engine url of your bot
 
+When deployment completes, clic 'View App' to visualize the URL of the newly created app in a new browser tab. This tab will not work by itself, so just copy its URL and we will use it as a `Service Endpoint URL` in the next steps ahead.
 
 #### Running the connector locally
 If you want to run the connector locally, follow the steps below. If you have already followed the instructions above to deploy the connector on Heroku, you can skip this section and continuing setup on [Alexa Developer Console](#add-the-endpoint-url-to-your-skill).
@@ -144,9 +145,10 @@ Next, we need to make the connector available via https. We'll use [ngrok](https
 ### Add the endpoint URL to your skill
 1. Go back to the [Developer Console](https://developer.amazon.com/alexa/console/ask).
 2. Click `Endpoint` from the left menu.
-3. Select a `HTTPS` service endpoint type, and paste the public URL from ngrok obtained earlier in the `Default Region` field. 
+3. Select a `HTTPS` service endpoint type, and paste the public URL from ngrok obtained earlier in the `Default Region` field. Make sure this URL does not end in a slash character '/'.
 4. From the `Select SSL certificate type` dropdown, select `My developement endpoint is a sub-domain ... that has a wildcard certificate from a certificate authority`.
 5. Click on Save endpoints.
+6. Click on the Left Side menu > JSON Editor > Build Model to update the changes.
 
 That's it! You're now ready to talk to your Alexa bot.
 
