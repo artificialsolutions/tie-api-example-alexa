@@ -112,7 +112,7 @@ Click the button below to deploy the connector to Heroku:
 In the 'Config Vars' section, add the following:
 * **TENEO_ENGINE_URL:** The engine url of your bot
 
-When deployment completes, clic 'View App' to visualize the URL of the newly created app in a new browser tab. This tab will not work by itself, so just copy its URL and we will use it as a `Service Endpoint URL` in the next steps ahead.
+When deployment completes, click 'View App' to visualize the URL of the newly created app in a new browser tab. This tab will not work by itself, so just copy its URL and we will use it as a `Service Endpoint URL` in the next steps ahead.
 
 #### Running the connector locally
 If you want to run the connector locally, follow the steps below. If you have already followed the instructions above to deploy the connector on Heroku, you can skip this section and continuing setup on [Alexa Developer Console](#add-the-endpoint-url-to-your-skill).
