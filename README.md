@@ -12,11 +12,15 @@ Your bot needs to be published and you need to know the engine URL.
 ### Setup an Alexa Skill
 1. Go to the [Amazon Developer Console](https://developer.amazon.com/alexa/console/ask) and create a new skill:
 	* Click `Create Skill`
-	* Select a `Custom` Skill type
 	* Give you skill a name
-	* Click `Create Skill` again
-	* Next, select the `Start from scratch` template.
-2. From the left menu, open the `JSON Editor` section, paste the JSON below. 
+	* Select a language from the dropdown
+	* Leave model as Custom or select another if appropiate
+	* Leave as Alexa-hosted
+	* Click `Create Skill` at the upper right of page
+	* Leave template as Hello World Skill, click Continue with Template at upper right of page – this will take a minute or so.
+	* Click Interaction Model in the left menu.
+	
+2. Click Interaction Model in left menu then select the `JSON Editor` section, paste the JSON below. 
 	!!! In the example JSON below we will call our bot 'Studio bot'. If you want to use a different name to invoke your bot, make sure you update the `invocationName` and the sample sentences for the `AMAZON.StopIntent`. You can do this after you have pasted the JSON below into the Amazon JSON Editor.
 
     ```
@@ -95,7 +99,7 @@ Your bot needs to be published and you need to know the engine URL.
     * The phrases that trigger the StopIntent, which dismisses your bot, and steers the conversation back to Alexa.
     * The way in which the user input is captured, to be later relayed to your Teneo bot.
  
-3. Click `Save Model`, and then `Build Model` to build and update Alexa's Interaction model.
+3. Click `Save Model` and then `Build Model` at the top of the page to build and update Alexa's Interaction model.  This will take about a minute. 
 
 ### Run the connector
 Before continuing setting up things on Alexa's Developer Console side, get the connector code running using one of the two available ways described ahead:
@@ -143,7 +147,7 @@ Next, we need to make the connector available via https. We'll use [ngrok](https
 
 
 ### Add the endpoint URL to your skill
-1. Go back to the [Developer Console](https://developer.amazon.com/alexa/console/ask).
+1. Go back to the [Developer Console](https://developer.amazon.com/alexa/console/ask) and select your skill.
 2. Click `Endpoint` from the left menu.
 3. Select a `HTTPS` service endpoint type, and paste the public URL from ngrok obtained earlier in the `Default Region` field. Make sure this URL does not end in a slash character '/'.
 4. From the `Select SSL certificate type` dropdown, select `My developement endpoint is a sub-domain ... that has a wildcard certificate from a certificate authority`.
