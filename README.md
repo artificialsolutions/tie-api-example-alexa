@@ -20,7 +20,7 @@ Your bot needs to be published and you need to know the engine URL.
 	* Leave template as Hello World Skill, click Continue with Template at upper right of page – this will take a minute or so.
 	
 2. Click Interaction Model in left menu then select the `JSON Editor` section, paste the JSON below. 
-	!!! In the example JSON below we will call our bot 'Studio bot'. If you want to use a different name to invoke your bot, make sure you update the `invocationName` and the sample sentences for the `AMAZON.StopIntent`. You can do this after you have pasted the JSON below into the Amazon JSON Editor.
+	 In the example JSON below we will call our bot 'Studio bot'. If you want to use a different name to invoke your bot, make sure you update the `invocationName` and the sample sentences for the `AMAZON.StopIntent`. You can do this after you have pasted the JSON below into the Amazon JSON Editor.
 
     ```
     {
@@ -115,7 +115,7 @@ Click the button below to deploy the connector to Heroku:
 In the 'Config Vars' section, add the following:
 * **TENEO_ENGINE_URL:** The engine url of your bot
 
-When deployment completes, click 'View App' to visualize the URL of the newly created app in a new browser tab. This tab will not work by itself, so just copy its URL and we will use it as a `Service Endpoint URL` in the next steps ahead.
+When deployment completes, click 'View' to visualize the URL of the newly created app in a new browser tab. This tab will not work by itself, so just copy its URL and we will use it as a `Service Endpoint URL` in the next steps ahead.
 
 #### Running the connector locally
 If you want to run the connector locally, follow the steps below. If you have already followed the instructions above to deploy the connector on Heroku, you can skip this section and continuing setup on [Alexa Developer Console](#add-the-endpoint-url-to-your-skill).
@@ -156,7 +156,7 @@ Next, we need to make the connector available via https. We'll use [ngrok](https
 That's it! You're now ready to talk to your Alexa bot.
 
 ### Start talking to your bot
-1. In the top menu, click Test to begin chatting to the bot. At first, the conversation takes place with Alexa. To begin talking with your Teneo bot, say something like "_Alexa, launch studio bot_". Your Teneo bot should then greet you, and take over the conversation. 
+1. In the top menu, click Test to begin chatting to the bot. Skill Testing is enabled by selecting Development mode, if requested. At first, the conversation takes place with Alexa. To begin talking with your Teneo bot, say something like "_Alexa, launch studio bot_". Your Teneo bot should then greet you, and take over the conversation. 
 2. To end a conversation with your bot and go back to talking to Alexa, say something like "_Goodbye studio bot_". You will now be talking to Alexa again.
 
 ## Engine input parameters
