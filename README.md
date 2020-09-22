@@ -18,7 +18,6 @@ Your bot needs to be published and you need to know the engine URL.
 	* Leave as Alexa-hosted
 	* Click `Create Skill` at the upper right of page
 	* Leave template as Hello World Skill, click Continue with Template at upper right of page – this will take a minute or so.
-	* Click Interaction Model in the left menu.
 	
 2. Click Interaction Model in left menu then select the `JSON Editor` section, paste the JSON below. 
 	!!! In the example JSON below we will call our bot 'Studio bot'. If you want to use a different name to invoke your bot, make sure you update the `invocationName` and the sample sentences for the `AMAZON.StopIntent`. You can do this after you have pasted the JSON below into the Amazon JSON Editor.
