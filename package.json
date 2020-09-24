@@ -1,6 +1,6 @@
 {
   "name": "tie-api-example-alexa",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A basic example using Teneo and Alexa",
   "main": "server.js",
   "scripts": {
