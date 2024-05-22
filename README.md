@@ -166,5 +166,5 @@ That's it! You're now ready to talk to your Alexa bot.
 The following input parameters are included in requests to Engine.
 
 ### channel
-In addition to the input entered by the user, requests to the Teneo Engine also contain an input paramter 'channel' with value 'amazon-alexa'. This allows you to change the behavior of your bot, depending on the channel used. For information on how to retrieve the value of an input parameter in Teneo Studio, see [Store input parameters](https://developers.artificial-solutions.com/studio/scripting/how-to/store-input-parameters) on the Teneo Developers website.
+In addition to the input entered by the user, requests to the Teneo Engine also contain an input paramter 'channel' with value 'amazon-alexa'. This allows you to change the behavior of your bot, depending on the channel used. For information on how to retrieve the value of an input parameter in Teneo Studio, see [Store input parameters](https://developers.teneo.ai/article/build/scripting/how-to/store-input-parameters) on the Teneo Developers website.
 
