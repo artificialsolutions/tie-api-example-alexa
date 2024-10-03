@@ -1,4 +1,9 @@
 # Alexa example connector for Teneo
+
+> [!IMPORTANT]
+> This project has been retired and archived  
+> If there is a need of continued use / development of this project for your own needs please feel free to fork the project - which will remain here in archived form.
+
 This node.js example connector makes a Teneo bot available on Amazon Alexa as a Skill. This guide will take you through the steps of deploying the connector to respond to events sent by Teneo.
 
 ## Prerequisites
